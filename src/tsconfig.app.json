@@ -10,8 +10,8 @@
       "es2016",
       "dom"
     ],
-    "outDir": "../out-tsc/app",
-    "module": "es2015",
+    "outDir": "../dist/app",
+    "module": "umd",
     "baseUrl": "",
     "types": []
   },
