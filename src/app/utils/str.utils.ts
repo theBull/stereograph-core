@@ -1,4 +1,6 @@
 export class Str {
+  public static readonly EMPTY = '';
+  
   public static isNotEmptyString(string: string): boolean {
     return string && string !== '';
   }

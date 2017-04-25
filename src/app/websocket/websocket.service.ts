@@ -37,7 +37,7 @@ export class WebSocketService {
     this._client.onerror = (error) => {
         console.log("Connection Error: " + error.toString());
     };
-    
+      
     this._client.onclose = () => {
         console.log('echo-protocol Connection Closed');
     };

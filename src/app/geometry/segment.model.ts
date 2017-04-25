@@ -1,14 +1,13 @@
 import { Num } from '../utils';
-import { Circle, Point, Vector, Intersections, IGeometricShape } from '.';
+import { Circle, Point, Vector, Intersections, IPhysicalObject, PhysicalObject } from '.';
 
-export class Segment implements IGeometricShape {
-  
-  public x: number;
-  public y: number;
+export class Segment extends PhysicalObject implements IPhysicalObject {
+
   public vecx: number;
   public vecy: number;
 
   constructor(x: number, y: number, vecx: number, vecy: number) {
+    super();
     this.x = x;
     this.y = y;
     this.vecx = vecx;
@@ -71,7 +70,11 @@ export class Segment implements IGeometricShape {
     return circle.intersect(this);
   }
 
-  public intersect(segment: Segment): Point {
+  public intersect(shape: IPhysicalObject): boolean {
+    return this.intersectSegment(<Segment>shape) != null;
+  }
+
+  public intersectSegment(segment: Segment): Point {
     
     // line a
     let x1 = this.x;

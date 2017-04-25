@@ -13,7 +13,12 @@ export class ApiService {
    * Sends an asynchronous GET request
    */
   public get<T>(url: string): Observable<T> {
-    return this._http.get(url)
+    let headers = new Headers({ 
+      'Content-Type': 'application/json',
+    });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.get(url, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -33,7 +38,7 @@ export class ApiService {
   
   private extractData<T>(res: Response) {
     let body = res.json();
-    return <T>body.data || <T>{ };
+    return <T>body || <T>{};
   }
 
   private handleError (error: Response | any) {

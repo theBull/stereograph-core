@@ -10,7 +10,7 @@ describe('ApiService', () => {
     });
   });
 
-  it('should ...', inject([ApiService], (service: ApiService) => {
+  it('should create', inject([ApiService], (service: ApiService) => {
     expect(service).toBeTruthy();
   }));
 });

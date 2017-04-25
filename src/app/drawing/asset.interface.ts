@@ -1,20 +1,15 @@
-import { IDrawable, CanvasProperties } from '.';
+import { IDrawable, CanvasProperties, Canvas } from '.';
 import { Dimensions, Coordinates } from '../spatial';
-import { IGeometricShape } from '../geometry';
+import { IPhysicalObject } from '../geometry';
 import { Obj, Num } from '../utils';
 import { Gravity } from '../physics';
 
-export interface IAsset {
-
-  solid: boolean;
-  dims: Dimensions;
-  coords: Coordinates;
+export interface IAsset extends IDrawable {
+  
+  obj: IPhysicalObject;
+  canvas: Canvas;
   context: CanvasRenderingContext2D;
-  gravity: Gravity;
-  bounds: IGeometricShape;
   properties: CanvasProperties;
 
   draw(): void;
-  move(xSpeed: number, ySpeed: number): void;
-  setCoordinates(x: number, y: number): void;
 }

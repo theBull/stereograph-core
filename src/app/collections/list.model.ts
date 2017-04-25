@@ -13,8 +13,8 @@ export class List<T extends any> {
   }
 
 
-  public _add(item: T): void {
-    item['_list_item_id'] = item['_list_item_id'] || Rand.guid();
+  public addOne(item: T, guid?: string): void {
+    item['_list_item_id'] = item['_list_item_id'] || guid || Rand.guid();
     this._itemIds.push(item['_list_item_id']);
     this.items.push(item);
     this._size++; 
@@ -41,7 +41,7 @@ export class List<T extends any> {
       if(this.contains(item)) {
         this.replaceAtIndex(item, this.indexOf(item));
       } else {
-        this._add(item);
+        this.addOne(item);
       }     
     }   
   }
@@ -137,9 +137,10 @@ export class List<T extends any> {
    * @param  {T} item The item to get
    * @return {T}      The item, if it exists in the list
    */
-  public get(item: T): T {
-    const index = this.indexOf(item);
-    return index > -1 ? this.items[index] : null; 
+  public get(guid: string): T {
+    return this.filterFirst((item: T, index: number) => {
+      return item._list_item_id === guid;
+    });
   }
 
   /**
@@ -252,7 +253,7 @@ export class List<T extends any> {
           // push it onto the items array
           // (our predicate condition has passed, or didn't exist)
           // and track that the id has been used
-          this._add(item);
+          this.addOne(item);
         }
       }
     }

@@ -1,4 +1,5 @@
-export * from './geometric-shape.interface';
+export * from './physical-object.interface';
+export * from './physical-object.model';
 export * from './intersections.enum';
 export * from './point.model';
 export * from './vector.model';

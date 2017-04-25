@@ -1,12 +1,13 @@
-import { Segment, Vector, IGeometricShape, Point } from '.';
+import { Segment, Vector, IPhysicalObject, PhysicalObject, Point } from '.';
 
-export class Circle implements IGeometricShape {
+export class Circle extends PhysicalObject implements IPhysicalObject {
   public x: number;
   public y: number;
   public radius: number;
   public radiusLine: Segment;
 
   constructor(x: number, y: number, radius: number) {
+    super();
     this.x = x;
     this.y = y;
     this.radius = radius;
@@ -18,7 +19,11 @@ export class Circle implements IGeometricShape {
     return segment.length() <= this.radiusLine.length();
   }
 
-  public intersect(segment: Segment): boolean {
+  public intersect(shape: IPhysicalObject): boolean {
+    return this.intersectSegment(<Segment>shape);
+  }
+
+  public intersectSegment(segment: Segment): boolean {
     
     let segment2 = new Segment(segment.x, segment.y, this.x-segment.x, this.y-segment.y);
     

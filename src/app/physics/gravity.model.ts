@@ -1,20 +1,15 @@
-import { IAsset } from '../drawing';
-import { Collision } from '.';
+import { IPhysicalObject } from '../geometry';
 
 export class Gravity {
-  public readonly gravity = 0.2;
-  public gravitySpeed = 0;
-  public gravitySpeedMax = 20;
-  private _asset: IAsset;
+  private _gravity: number;
+  private _object: IPhysicalObject;
 
-  constructor(asset: IAsset) {
-    this._asset = asset;
+  constructor(gravity: number, obj: IPhysicalObject) {
+    this._gravity = gravity;
+    this._object = obj;
   }
 
   public apply(): void {
-    if(this.gravitySpeed <= this.gravitySpeedMax) {
-      this.gravitySpeed += this.gravity;
-      this._asset.move(0, this.gravitySpeed);
-    }
+    this._object.move(0, this._gravity);
   }
 }

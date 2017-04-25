@@ -94,4 +94,26 @@ export class Grid<T> {
       }
     }
   }
+
+  /**
+   * Returns the value in the cell at the given row and column
+   * @param  {number} row    [description]
+   * @param  {number} column [description]
+   * @return {T}             [description]
+   */
+  public getCell(col: number, row: number): T {
+    return this.data[row] ? this.data[row][col] : null;
+  }
+
+  /**
+   * Sets the cell to the given value
+   * @param {number} col   [description]
+   * @param {number} row   [description]
+   * @param {T}      value [description]
+   */
+  public setCell(col: number, row: number, value: T): void {
+    if(Obj.isNotNullOrUndefined(this.data[row])) {
+      this.data[row][col] = value;
+    }
+  }
 }

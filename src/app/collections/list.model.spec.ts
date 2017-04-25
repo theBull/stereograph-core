@@ -1,4 +1,5 @@
 import { List } from '.';
+import { Rand } from '../utils';
 
 describe("List", () => {
   let list;
@@ -116,9 +117,10 @@ describe("List", () => {
 
   // get
   it('should get successfully', () => {
+    let guid = Rand.guid();
     let item1 = {};
-    list.add(item1);
-    let gottenItem = list.get(item1);
+    list.addOne(item1, guid);
+    let gottenItem = list.get(guid);
     expect(gottenItem).toBeTruthy();
     expect(gottenItem).toEqual(item1);
   });

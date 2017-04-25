@@ -1,59 +1,43 @@
-import { IAsset, IDrawable, CanvasProperties } from '.';
+import { IAsset, IDrawable, CanvasProperties, Canvas } from '.';
 import { Dimensions, Coordinates } from '../spatial';
-import { IGeometricShape, Rectangle } from '../geometry';
+import { IPhysicalObject, Rectangle, Point } from '../geometry';
 import { Obj, Num } from '../utils';
 import { Gravity } from '../physics';
 
-export abstract class Asset implements IDrawable, IAsset {
-
-  public solid: boolean;
-  public dims: Dimensions;
-  public coords: Coordinates;
+export abstract class Asset implements IAsset {
+  
+  public x: number;
+  public y: number;
+  public width: number;
+  public height: number;
+  public color: string;
+  public obj: IPhysicalObject;
+  public canvas: Canvas;
   public context: CanvasRenderingContext2D;
-  public gravity: Gravity;
-  public bounds: IGeometricShape;
   public properties: CanvasProperties;
 
-  constructor(context: CanvasRenderingContext2D) {
-    if(Obj.isNullOrUndefined(context)) {
-      throw Error('context is null or undefined');
-    }
-
-    this.context = context;
-    this.solid = false;
-    this.dims = new Dimensions(10, 10);
-    this.coords = new Coordinates(0, 0);
+  constructor(canvas: Canvas) {
+    this.x = 0;
+    this.y = 0;
+    this.width = 0;
+    this.height = 0;
+    this.color = 'rgba(0, 0, 0, 0)';
+    this.obj = null;
+    this.canvas = canvas;
+    this.context = canvas.context;
     this.properties = new CanvasProperties();
   }
 
-  public draw(): void {}
-
-  public move(xSpeed: number, ySpeed: number): void {
-    this.coords.move(xSpeed, ySpeed);
-  }
-
-  public setCoordinates(x: number, y: number): void {
-    if(Num.isNaN(x) || Num.isNaN(y)) {
-      throw Error('x and y must be valid integers');
+  public setContext(context: CanvasRenderingContext2D): void {
+    if(Obj.isNullOrUndefined(context)) {
+      throw Error('context is null or undefined');
     }
-    this.coords.x = x;
-    this.coords.y = y;
+    this.context = context;
   }
 
-  public setBounds(): void {
-    this.bounds = new Rectangle(
-      this.coords.x, 
-      this.coords.y, 
-      this.dims.width, 
-      this.dims.height
-    );
-  }
-
-  public drawBounds(): void {
-    this.context.beginPath();
-    this.context.strokeStyle = '#0f0';
-    this.context.rect(this.coords.x, this.coords.y, this.dims.width, this.dims.height);
-    this.context.stroke();
-    this.context.closePath();
+  public draw(): void {
+    if(Obj.isNullOrUndefined(this.obj)) {
+      throw Error('Obj is null or undefined');
+    }
   }
 }
