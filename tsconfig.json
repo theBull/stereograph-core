@@ -16,7 +16,7 @@
       "es2016",
       "dom"
     ],
-    "module": "umd",
+    "module": "commonjs",
     "types": ["jasmine"],
     "paths": {
       "rxjs/Observable": ["node_modules/rxjs/Observable"]

@@ -11,7 +11,7 @@
       "dom"
     ],
     "outDir": "../dist/app",
-    "module": "umd",
+    "module": "commonjs",
     "baseUrl": ""
   },
   "exclude": [
