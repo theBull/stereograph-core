@@ -11,7 +11,7 @@ echo 'Compiling TypeScript files...'
 tsc
 
 echo 'Updating git...'
-git add . && git commit -m 'Version update' && git push origin master
+git add . && git commit -m 'Version update' && git push -f origin master
 
 echo 'Updating npm package version patch...'
 npm version patch
