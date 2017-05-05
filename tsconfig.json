@@ -16,9 +16,14 @@
       "es2016",
       "dom"
     ],
-    "module": "umd"
+    "module": "umd",
+    "types": ["jasmine"],
+    "paths": {
+      "rxjs/Observable": ["node_modules/rxjs/Observable"]
+    }
   },
   "files": [
     "index.ts"
-  ]
+  ],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

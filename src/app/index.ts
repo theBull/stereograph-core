@@ -1,3 +1,4 @@
+export * from './rxjs';
 export * from './utils';
 export * from './collections';
 export * from './execution';

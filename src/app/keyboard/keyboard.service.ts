@@ -66,7 +66,9 @@ export class KeyboardService {
         }
 
         if(this._callbacks.hasValue(e.which)) {
-          this._callbacks.get(e.which)(e.shiftKey);
+          this._callbacks.each(e.which, (handler: Function, i: number) => {
+            handler(e.shiftKey);
+          });
         }
 
         if(this.isBrowserRefreshKey(e.which))

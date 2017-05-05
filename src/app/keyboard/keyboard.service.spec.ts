@@ -1,14 +1,16 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { KeyInputService } from './key-input.service';
+import { KeyboardService } from '.';
 
-describe('KeyInputService', () => {
+describe('KeyboardService', () => {
+  let service = new KeyboardService();
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [KeyInputService]
+      providers: [KeyboardService]
     });
   });
 
-  it('should ...', inject([KeyInputService], (service: KeyInputService) => {
+  it('should create', () => {
     expect(service).toBeTruthy();
-  }));
+  });
 });

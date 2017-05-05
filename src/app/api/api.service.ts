@@ -3,6 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class ApiService {
@@ -38,7 +39,7 @@ export class ApiService {
   
   private extractData<T>(res: Response) {
     let body = res.json();
-    return <T>body || <T>{};
+    return <T>body|| <T>{};
   }
 
   private handleError (error: Response | any) {
