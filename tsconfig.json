@@ -17,10 +17,7 @@
       "dom"
     ],
     "module": "commonjs",
-    "types": ["jasmine"],
-    "paths": {
-      "rxjs/Observable": ["node_modules/rxjs/Observable"]
-    }
+    "types": ["jasmine"]
   },
   "files": [
     "index.ts"
