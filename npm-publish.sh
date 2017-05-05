@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run unit tests
-karma start --watch false --single-run
+echo $(karma start --watch false --single-run)
 
 pwd=$(pwd)
 echo "Cleaning $pwd/dist directory..."
