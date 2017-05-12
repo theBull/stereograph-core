@@ -4,11 +4,8 @@
 karma start --watch false --single-run
 
 pwd=$(pwd)
-echo "Cleaning $pwd/dist directory..."
-cd "$pwd/dist"
-find . -type f -delete
-find . -type d -delete
-cd $pwd
+echo "Removing $pwd/dist directory..."
+rm -rf "$pwd/dist"
 
 echo 'Compiling TypeScript files...'
 tsc
