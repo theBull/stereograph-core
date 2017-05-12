@@ -20,7 +20,6 @@ export class ApiService {
     let options = new RequestOptions({ headers: headers });
 
     return this._jsonp.get(url, options)
-      .map(this.extractData)
       .catch(this.handleError);
   }
 
