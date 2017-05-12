@@ -28,7 +28,7 @@ export class ApiService {
    */
   public get<T>(url: string): Observable<T> {
     let headers = new Headers({ 
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/javascript',
     });
     let options = new RequestOptions({ headers: headers });
 
