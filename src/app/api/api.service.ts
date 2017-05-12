@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response, Headers, RequestOptions, Jsonp } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -8,7 +8,21 @@ import 'rxjs/add/operator/mergeMap';
 @Injectable()
 export class ApiService {
 
-  constructor(private _http: Http) { }
+  constructor(private _http: Http, private _jsonp: Jsonp) { }
+
+  /**
+   * Sends an asynchronous JSONP request
+   */
+  public jsonp<T>(url: string): Observable<T> {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._jsonp.get(url, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
   /**
    * Sends an asynchronous GET request
