@@ -14,12 +14,8 @@ export class ApiService {
    * Sends an asynchronous JSONP request
    */
   public jsonp<T>(url: string): Observable<T> {
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({ headers: headers });
-
-    return this._jsonp.get(url, options)
+    return this._jsonp.get(url)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
