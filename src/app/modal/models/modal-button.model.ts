@@ -17,7 +17,7 @@ import {
   PRIMARY_DIALOG_BUTTON_CLASS,
   SUCCESS_DIALOG_BUTTON_CLASS
 } from '../const';
-import { Obj, Func } from 'app/utils';
+import { Obj, Func } from '../../utils';
 
 export class ModalButton {
 

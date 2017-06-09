@@ -1,7 +1,7 @@
 import { ViewContainerRef, Type, ComponentRef } from '@angular/core';
 import { ModalButtonList } from '../models';
 import { ModalActionType } from '../enums';
-import { List } from 'app/collections';
+import { List } from '../../collections';
 
 export interface IModalService {
 

@@ -1,4 +1,4 @@
-import { List } from 'app/collections';
+import { List } from '../../collections';
 import { ModalActionType } from '../enums';
 import { ModalButton } from '.';
 

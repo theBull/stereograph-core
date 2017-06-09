@@ -17,11 +17,7 @@
       "dom"
     ],
     "module": "commonjs",
-    "types": ["jasmine"],
-    "paths": {
-      "app": ["src/app"],
-      "app/*": ["src/app/*"]
-    }
+    "types": ["jasmine"]
   },
   "files": [
     "index.ts"

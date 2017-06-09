@@ -1,6 +1,6 @@
 import { Injectable, ComponentRef, Type, Inject, ViewContainerRef } from '@angular/core';
-import { Obj, Func } from 'app/utils';
-import { List } from 'app/collections';
+import { Obj, Func } from '../../utils';
+import { List } from '../../collections';
 import { ComponentResolverService } from '.';
 import { 
   IComponentResolverService,

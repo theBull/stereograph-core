@@ -3,7 +3,7 @@ import {
   ModalButtonAlignment,
   ModalButtonSeverity 
 } from '../enums';
-import { Obj } from 'app/utils';
+import { Obj } from '../../utils';
 
 export const OK_DIALOG_CLASS = 'modal-button-ok';
 export const CANCEL_DIALOG_CLASS = 'modal-button-cancel';

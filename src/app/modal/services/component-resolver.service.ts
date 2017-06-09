@@ -5,7 +5,7 @@ import {
   Type,
   ComponentRef
 } from '@angular/core';
-import { Obj } from 'app/utils';
+import { Obj } from '../../utils';
 import { IComponentResolverService } from '../interfaces';
 
 @Injectable()
