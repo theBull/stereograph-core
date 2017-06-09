@@ -231,7 +231,8 @@ export class ModalService implements IModalService {
       this.modalComponent.destroy();
       this.modalComponent = null;
     }
-    this.visible = false;
+    this.setVisibility(false);
+    console.log('close modal');
     this.closeCallbacks.removeEach(onClose => onClose());
   }
 

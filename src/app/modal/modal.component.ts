@@ -56,7 +56,6 @@ export class ModalComponent implements OnInit, AfterViewInit {
    * Click handler which calls the modal service's close method.
    */
   public close(): void {
-    console.log('closing modal');
     this._modalService.close();
   }
 }

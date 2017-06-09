@@ -10,17 +10,14 @@
 }
 
 .modal {
-  font-size: 12px;
   position: relative;
-  height: auto;
+  min-height: 3em;
   align-self: center;
   background-color: rgb(230, 231, 232);
   border: 1px solid #333;
   border-radius: 2px;
   padding: 1em;
   width: 85vw;
-  max-width: 85em;
-  height: auto;
   max-height: 75vh;
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
   z-index: 9999;
@@ -37,6 +34,7 @@
   right: 0em;
   cursor: pointer;
   z-index: 9999;
+  color: #000;
 }
 
 .close:hover {

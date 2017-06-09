@@ -1,27 +1,29 @@
-<div class='container' [hidden]='!_modalService.isVisible()'>
-  <div class='modal' >
-    <div class='wrapper' #wrapper>
+<div [hidden]='!_modalService.visible'>
+  <div class='container'>
+    <div class='modal' >
+      <div class='wrapper' #wrapper>
 
-      <!-- modal contents are rendered here -->
+        <!-- modal contents are rendered here -->
 
-      <div class='close' (click)='close()'>
-        <span class='glyphicon glyphicon-remove'></span>
+        <div class='close' (click)='close()'>
+          <span class='ti-close'></span>
+        </div>
+
       </div>
 
+      <div class='buttons'>
+        <button 
+          [hidden]='!button.visible'
+          *ngFor='let button of _modalService.buttons.toArray()' 
+          class='{{button.class}}' (click)='button.action()'>
+          {{button.text}}
+        </button>
+      </div>
+      
     </div>
 
-    <div class='buttons'>
-      <button 
-        [hidden]='!button.visible'
-        *ngFor='let button of _modalService.buttons.toArray()' 
-        class='{{button.class}}' (click)='button.action()'>
-        {{button.text}}
-      </button>
-    </div>
-    
+    <app-overlay
+      (onClick)='overlayClick($event)'>
+    </app-overlay>
   </div>
-
-  <app-overlay
-    (onClick)='overlayClick($event)'>
-  </app-overlay>
 </div>
