@@ -15,10 +15,7 @@
     "types": [
       "jasmine",
       "node"
-    ],
-    "paths": {
-      "app": ["./app"]
-    }
+    ]
   },
   "files": [
     "test.ts"

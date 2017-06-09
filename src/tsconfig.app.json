@@ -12,10 +12,7 @@
     ],
     "outDir": "../dist/app",
     "module": "commonjs",
-    "baseUrl": ".",
-    "paths": {
-      "app": ["./app"]
-    }
+    "baseUrl": "."
   },
   "exclude": [
     "test.ts",
