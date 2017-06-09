@@ -17,7 +17,7 @@
       "node"
     ],
     "paths": {
-      "app": ["app"]
+      "app": ["./app"]
     }
   },
   "files": [

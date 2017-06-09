@@ -14,7 +14,7 @@
     "module": "commonjs",
     "baseUrl": "",
     "paths": {
-      "app": ["app"]
+      "app": ["./app"]
     }
   },
   "exclude": [
