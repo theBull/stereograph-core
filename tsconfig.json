@@ -19,7 +19,8 @@
     "module": "commonjs",
     "types": ["jasmine"],
     "paths": {
-      "app": ["./src/app"]
+      "app": ["src/app"],
+      "app/*": ["src/app/*"]
     }
   },
   "files": [
