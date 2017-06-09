@@ -10,5 +10,6 @@ export * from './api';
 export * from './websocket';
 export * from './mouse';
 export * from './keyboard';
+export * from './modal';
 export * from './app.component';
 export * from './app.module';

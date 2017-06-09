@@ -73,6 +73,18 @@ export class List<T extends any> {
   }
 
   /**
+   * Removes each item from the array, starting from the end,
+   * and passes the item into the provided callback, once
+   * for each item.
+   * @param {Function} callback A callback function to execute over each removed item
+   */
+  public removeEach(callback: Function): void {
+    while(this.hasElements()) {
+      callback(this.items.pop());
+    }
+  }
+
+  /**
    * Removes the first item in the list
    * @return {T} the removed item
    */
