@@ -11,8 +11,7 @@ echo 'Compiling TypeScript files...'
 tsc
 
 echo 'Copying CSS and HTML files...'
-find ./src/app -name '.html' -or -name '*.css' -type f -exec cp --parents {} ./dist
-
+cd src/app && find . -name '*.html' -or -name '*.css' | cpio -pdm ../../dist && cd ../../
 
 echo 'Updating git...'
 git add . && git commit -m 'Version update' && git push -f origin master
