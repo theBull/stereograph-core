@@ -11,7 +11,7 @@ export class OverlayComponent {
 
   constructor() { }
 
-  public click(event: any): void {
+  public click(): void {
     this.onClick.emit();
   }
 }

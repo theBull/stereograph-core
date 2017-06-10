@@ -1,4 +1,4 @@
-<div [hidden]='!_modalService.visible'>
+<div [hidden]='!modalService().visible'>
   <div class='container'>
     <div class='modal' >
       <div class='wrapper' #wrapper>
@@ -14,7 +14,7 @@
       <div class='buttons'>
         <button 
           [hidden]='!button.visible'
-          *ngFor='let button of _modalService.buttons.toArray()' 
+          *ngFor='let button of modalService().buttons.toArray()' 
           class='{{button.class}}' (click)='button.action()'>
           {{button.text}}
         </button>

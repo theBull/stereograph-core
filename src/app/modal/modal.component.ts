@@ -28,6 +28,10 @@ export class ModalComponent implements OnInit, AfterViewInit {
   public ngOnInit(): void {
   }
 
+  public modalService(): IModalService {
+    return this._modalService;
+  }
+
   /**
    * Initializes the modal service with this component
    * as the wrapper element
