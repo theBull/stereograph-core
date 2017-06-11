@@ -52,15 +52,16 @@ gulp.task("default", function () {
         },
         supportNonExistentFiles: true
       }))
+      .pipe(gulp.dest('.'))
       .pipe(sourcemaps.init())
-      .pipe(tsProject());
+      .pipe(tsProject());  
 
   var dtsResult = dtsProject.src().pipe(dtsProject());
-  dtsResult.dts.pipe(JS_DESTINATION);
 
   return merge([
     tsResult.js.pipe(JS_DESTINATION),
-    tsResult.js.pipe(sourcemaps.write()).pipe(JS_DESTINATION)
+    tsResult.js.pipe(sourcemaps.write()).pipe(JS_DESTINATION),
+    dtsResult.dts.pipe(JS_DESTINATION)
   ]);
 
 });

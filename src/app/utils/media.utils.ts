@@ -1,4 +1,4 @@
-﻿export class Media {
+export class Media {
   public static getImageType(url: string): string {
     let matches = url.match(
       /((\.png)|(\.jpg)|(\.jpeg)|(\.gif)){1}$/);

@@ -21,6 +21,7 @@
     "types": ["jasmine"]
   },
   "exclude": [
+    "dist",
     "node_modules", 
     "**/*.spec.ts",
     "e2e",
