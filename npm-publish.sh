@@ -8,8 +8,11 @@ pwd=$(pwd)
 echo "Removing $pwd/dist directory..."
 rm -rf "$pwd/dist"
 
-echo 'Gulp: Building project and packaging contents...'
+echo 'Gulp: Building project...'
 gulp
+
+echo 'Compiling Typescript files...';
+tsc
 
 echo 'Updating git...'
 git add . && git commit -m 'Version update' && git push -f origin master

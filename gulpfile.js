@@ -10,10 +10,9 @@ gulp.task("default", function () {
   
   var JS_DESTINATION = gulp.dest("dist");
 
-  var tsProject = createProject();
-  var dtsProject = createProject();
+  var tsProject = ts.createProject("./tsconfig.json");
 
-  var tsResult = tsProject.src()
+  return tsProject.src()
       .pipe(inlineNg2Template({ 
         base: './src/app',
         useRelativePaths: true,
@@ -52,20 +51,6 @@ gulp.task("default", function () {
         },
         supportNonExistentFiles: true
       }))
-      .pipe(gulp.dest('.'))
-      .pipe(sourcemaps.init())
-      .pipe(tsProject());  
-
-  var dtsResult = dtsProject.src().pipe(dtsProject());
-
-  return merge([
-    tsResult.js.pipe(JS_DESTINATION),
-    tsResult.js.pipe(sourcemaps.write()).pipe(JS_DESTINATION),
-    dtsResult.dts.pipe(JS_DESTINATION)
-  ]);
+      .pipe(gulp.dest('.'));
 
 });
-
-function createProject() {
-  return ts.createProject("./tsconfig.json");
-}

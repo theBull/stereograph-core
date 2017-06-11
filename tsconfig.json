@@ -21,16 +21,9 @@
     "types": ["jasmine"]
   },
   "exclude": [
-    "dist",
     "node_modules", 
     "**/*.spec.ts",
     "e2e",
     "typings"
-  ],
-  "files": [
-    "index.ts"
-  ],
-  "include": [
-    "**/*.ts"
   ]
 }
