@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "isolatedModules": false,
     "outDir": "./dist",
     "baseUrl": ".",
     "sourceMap": true,
