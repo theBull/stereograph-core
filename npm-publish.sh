@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Run unit tests
+echo "Building application and running unit tests..."
 karma start --watch false --single-run
 
 pwd=$(pwd)
