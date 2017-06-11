@@ -17,7 +17,7 @@ import {
 
 describe('ModalService', () => {
   let modalService: ModalService = null;
-  let modalComponentModalService: modalService = null;
+  let modalComponentModalService: ModalService = null;
   let componentResolverService: ComponentResolverService = null;
   let modalComponent: ModalComponent;
   let fixture: ComponentFixture<ModalComponent>;

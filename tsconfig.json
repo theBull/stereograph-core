@@ -19,8 +19,10 @@
     "module": "commonjs",
     "types": ["jasmine"]
   },
-  "files": [
-    "index.ts"
-  ],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": [
+    "node_modules", 
+    "**/*.spec.ts",
+    "e2e",
+    "typings"
+  ]
 }
