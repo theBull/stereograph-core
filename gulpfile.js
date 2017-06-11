@@ -55,11 +55,12 @@ gulp.task("default", function () {
       .pipe(sourcemaps.init())
       .pipe(tsProject());
 
-  var dtsResult = dtsProject.src().pipe(dtsProject()).pipe(JS_DESTINATION);
+  var dtsResult = dtsProject.src().pipe(dtsProject());
 
   return merge([
     tsResult.js.pipe(JS_DESTINATION),
-    tsResult.js.pipe(sourcemaps.write()).pipe(JS_DESTINATION)
+    tsResult.js.pipe(sourcemaps.write()).pipe(JS_DESTINATION),
+    dtsResult.dts.pipe(JS_DESTINATION)
   ]);
 
 });
