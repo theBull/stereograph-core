@@ -25,5 +25,11 @@
     "**/*.spec.ts",
     "e2e",
     "typings"
+  ],
+  "files": [
+    "index.ts"
+  ],
+  "include": [
+    "**/*.ts"
   ]
 }

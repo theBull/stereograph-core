@@ -1,14 +1,17 @@
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
-var tsProject = ts.createProject("./tsconfig.json");
 var inlineNg2Template = require('gulp-inline-ng2-template');
 var merge = require('merge2');
 var sourcemaps = require('gulp-sourcemaps');
+var clean = require('gulp-clean');
 
 gulp.task("default", function () {
   console.log('Converting external Angular 2 HTML and CSS relative path templates to inline templates...');
   
   var JS_DESTINATION = gulp.dest("dist");
+
+  var tsProject = createProject();
+  var dtsProject = createProject();
 
   var tsResult = tsProject.src()
       .pipe(inlineNg2Template({ 
@@ -47,14 +50,20 @@ gulp.task("default", function () {
             cb(err); 
           }
         },
+        supportNonExistentFiles: true
       }))
       .pipe(sourcemaps.init())
       .pipe(tsProject());
 
+  var dtsResult = dtsProject.src().pipe(dtsProject()).pipe(JS_DESTINATION);
+
   return merge([
-    tsResult.dts.pipe(JS_DESTINATION),
+    tsResult.js.pipe(JS_DESTINATION),
     tsResult.js.pipe(sourcemaps.write()).pipe(JS_DESTINATION)
   ]);
+
 });
 
-  
+function createProject() {
+  return ts.createProject("./tsconfig.json");
+}

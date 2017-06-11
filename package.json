@@ -32,6 +32,7 @@
     "codelyzer": "~2.0.0",
     "csso": "^3.1.1",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-inline-ng2-template": "^4.0.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-typescript": "^3.1.7",
