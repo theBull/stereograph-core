@@ -8,11 +8,11 @@ pwd=$(pwd)
 echo "Removing $pwd/dist directory..."
 rm -rf "$pwd/dist"
 
-echo 'Gulp: Building project...'
-gulp
+echo "Removing $pwd/aot directory..."
+rm -rf "$pwd/aot"
 
-echo 'Compiling Typescript files...';
-tsc
+echo "Running AOT build script..."
+npm run build:aot
 
 echo 'Updating git...'
 git add . && git commit -m 'Version update' && git push -f origin master

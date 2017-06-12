@@ -1,0 +1,1 @@
+{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","arity":1,"members":{"__ctor__":[{"__symbolic":"constructor"}],"populate":[{"__symbolic":"method"}],"seed":[{"__symbolic":"method"}],"forEach":[{"__symbolic":"method"}]}}}],"symbols":[{"__symbol":0,"name":"Map","filePath":"/Users/stereograph/framework/core/src/app/collections/map.model.d.ts"}]}
