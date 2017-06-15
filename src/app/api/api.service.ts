@@ -45,7 +45,17 @@ export class ApiService {
       .map(this.extractData)
       .catch(this.handleError);
   }
-  
+
+  public postFormData<T>(requestUrl: string, data: FormData, additionalHeaders?: any): Observable<T> {
+    const headers = new Headers(additionalHeaders);
+    const options = new RequestOptions({ headers: headers });
+    return this._http.post(requestUrl, data, options)
+      .map(this._extractData)
+      .catch(this._handleError)
+      .publishReplay(1)
+      .refCount();
+  }
+
   private extractData<T>(res: Response) {
     let body = res.json();
     return <T>body|| <T>{};
