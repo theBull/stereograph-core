@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  position: relative;
+  min-height: 3em;
+  align-self: center;
+  background-color: rgb(230, 231, 232);
+  border: 1px solid #333;
+  border-radius: 2px;
+  padding: 1em;
+  width: 85vw;
+  max-height: 75vh;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  padding: 0.5em 0.5em 0.25em 0.5em;
+  top: 0em;
+  right: 0em;
+  cursor: pointer;
+  z-index: 9999;
+  color: #000;
+}
+
+.close:hover {
+  background-color: rgba(220, 221, 222, 0.9);
+  color: #333;
+}
+
+.buttons {
+  position: absolute;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+}
+
+
+.modal-button-align-left {
+  float: left;
+}
+
+.modal-button-align-right {
+  float: right;
+}
+
+/**
+ * Generic button styling
+ */
+.modal-button {
+  font-size: 1.2em;
+  padding: 0.15em 0.5em 0.25em 0.5em;
+  margin: 0.25em;
+  cursor: pointer;
+  vertical-align: top;
+  min-height: 2em;
+  min-width: 4em;
+}
+
+/**
+ * Success button type color
+ */
+.modal-button-success {
+  background-color: #58BB76;
+  color: rgb(255, 254, 253);
+  border: 1px solid #2A854D;  
+}
+.modal-button-success:hover {
+  background-color: #81AB80;
+}
+
+/**
+ * Primary button type color
+ */
+.modal-button-primary {
+  background-color: rgb(29, 176, 237);
+  color: rgb(255, 254, 253);
+  border: 1px solid rgb(21, 130, 178);  
+}
+.modal-button-primary:hover {
+  background-color: rgb(9, 156, 217);
+}
+
+/**
+ * Warning button type color
+ */
+.modal-button-warn {
+  background-color: #FFB82E;
+  color: #333;
+  border: 1px solid #E67C00;  
+}
+.modal-button-warn:hover {
+  background-color: #E5A712;
+  color: #000;
+}
+
+/**
+ * Normal button type color
+ */
+.modal-button-normal {
+  background-color: #D8D8D8;
+  color: #333;
+  border: 1px solid #646464;  
+}
+.modal-button-normal:hover {
+  background-color: #B4B4B4;
+  color: #555;
+}
