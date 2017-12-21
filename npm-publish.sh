@@ -8,14 +8,14 @@ pwd=$(pwd)
 echo "Removing $pwd/dist directory..."
 rm -rf "$pwd/dist"
 
+echo 'Updating git...'
+git add . && git commit -m 'Version update' && git push -f origin master
+
 echo 'Updating npm package version patch...'
 npm version patch
 
 echo 'Packaging up library...'
 npm run packagr
-
-echo 'Updating git...'
-git add . && git commit -m 'Version update' && git push -f origin master
 
 echo 'Changing directory into dist/...'
 cd ./dist
