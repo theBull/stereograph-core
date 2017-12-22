@@ -1,27 +1,18 @@
 # StereographCore
+Stereograph Core is an Angular 5 and Typescript library with a bulk of functionality and reusable components.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
+# Setup
+`npm install`
+
+# Development
+For testing and development purposes, Stereograph Core lives inside of an Angular CLI -generated scaffold, which provides a test framework and application structure out of the box.
+
+Everything you want to share to the world lives inside the `src/app/modules` directory. Everything outside of that is simply for use in development (live browser reload, unit tests, etc). The outside world will not see anything outside of `src/app/modules`.
+
+## Unit tests
+`ng test`
 
 ## Development server
+`ng serve`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
