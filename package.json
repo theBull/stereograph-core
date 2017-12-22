@@ -1,6 +1,6 @@
 {
   "name": "@stereograph/core",
-  "version": "0.1.45",
+  "version": "0.1.46",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
