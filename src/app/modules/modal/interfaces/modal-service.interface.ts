@@ -12,6 +12,7 @@ export interface IModalService {
   overlayIsBlocking: boolean;
   closeCallbacks: List<Function>;
   completeCallbacks: List<Function>;
+  additionalClasses: string;
 
   setOverlayBlocking(overlayBlocking: boolean): void;
   isOverlayBlocking(): boolean;
@@ -19,7 +20,7 @@ export interface IModalService {
   isVisible(): boolean;
   setVisibility(isVisible: boolean): void;
   onButtonClick(type: ModalActionType, action: Function): void;
-  open<T>(component: Type<T>, blocking?: boolean): void;
+  open<T>(component: Type<T>, blocking?: boolean, additionalClasses?: string[]): void;
   close(): void;
   onClose(callback: Function): void;
   complete(): void;

@@ -1,5 +1,5 @@
 import { Injectable, ComponentRef, Type, Inject, ViewContainerRef } from '@angular/core';
-import { Obj, Func } from '../../utils';
+import { Obj, Func, Str } from '../../utils';
 import { List } from '../../collections';
 import { ComponentResolverService } from '.';
 import { 
@@ -27,6 +27,7 @@ export class ModalService implements IModalService {
   public modalComponent: ComponentRef<any>;
   public closeCallbacks: List<Function>;
   public completeCallbacks: List<Function>;
+  public additionalClasses: string;
 
   constructor( 
     @Inject(ComponentResolverService) 
@@ -38,6 +39,9 @@ export class ModalService implements IModalService {
 
     // hide modal by default
     this.visible = false;
+
+    // List of additional classes to add to the container element
+    this.additionalClasses = Str.EMPTY;
 
     // Default - determines whether clicking the overlay has any effect.
     // blocking = true indicates clicking the overlay does *not* close the modal.
@@ -199,7 +203,7 @@ export class ModalService implements IModalService {
    *                                 beneath the overlay), or non-blocking (the user can close
    *                                 the modal by clicking on the overlay).                                 
    */
-  public open<T>(component: Type<T>, blocking?: boolean): void {
+  public open<T>(component: Type<T>, blocking?: boolean, additionalClasses?: string[]): void {
 
     // Ensure the wrapper is valid before attempting to create the modal contents
     this._checkWrapper(this.wrapper);
@@ -212,6 +216,9 @@ export class ModalService implements IModalService {
     // Show the modal
     this.setVisibility(true);
 
+    // Set additional classes
+    this._setAdditionalClasses(additionalClasses);
+
     // Set overlay blocking; null or undefined will resolve to false.
     this.setOverlayBlocking(blocking);
     
@@ -221,6 +228,19 @@ export class ModalService implements IModalService {
       component,
       this.wrapper
     );
+
+    // prevent body from scrolling while modal is open
+    document.body.style.overflow = 'hidden';
+  }
+
+  private _setAdditionalClasses(additionalClasses: string[]): void {
+    if(!additionalClasses) {
+      this.additionalClasses = Str.EMPTY;
+      return;
+    }
+    additionalClasses.forEach((additionalClass: string, i: number) => {
+      this.additionalClasses += additionalClass + (i < additionalClasses.length - 1 ? ' ': Str.EMPTY);
+    });
   }
 
   /**
@@ -232,8 +252,10 @@ export class ModalService implements IModalService {
       this.modalComponent = null;
     }
     this.setVisibility(false);
+    this._setAdditionalClasses(null);
     console.log('close modal');
     this.closeCallbacks.removeEach(onClose => onClose());
+    document.body.style.removeProperty('overflow');
   }
 
   /**

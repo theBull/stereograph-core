@@ -16,6 +16,9 @@ export const WARN_DIALOG_BUTTON_CLASS = 'modal-button-warn';
 export const NORMAL_DIALOG_BUTTON_CLASS = 'modal-button-normal';
 export const DIALOG_BUTTON_ALIGN_RIGHT = 'modal-button-align-right';
 export const DIALOG_BUTTON_ALIGN_LEFT = 'modal-button-align-left';
+export const MODAL_SCROLL_X = 'modal-scroll-x';
+export const MODAL_SCROLL_Y = 'modal-scroll-y';
+export const MODAL_SCROLL = 'modal-scroll';
 
 export class ModalClassObjity {
 

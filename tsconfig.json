@@ -8,9 +8,13 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "baseUrl": "src",
     "typeRoots": [
       "node_modules/@types"
     ],
+    "paths": {
+      "@angular/*": ["../node_modules/@angular/*"]
+    },
     "lib": [
       "es2017",
       "dom"

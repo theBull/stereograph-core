@@ -1,4 +1,7 @@
-<div [hidden]='!modalService().visible'>
+<div [hidden]='!modalService().visible' 
+  class='parent {{modalService().additionalClasses}}' 
+  [class.open]='modalService().visible'>
+  
   <div class='container'>
     <div class='modal' >
       <div class='wrapper' #wrapper>
